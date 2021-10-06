@@ -59,6 +59,8 @@ class KavMain:
 
         return False  # 치료 실패 리턴
 
+
+    # 악성코드 리스트 출력
     def listvirus(self):  # 진단 가능한 악성코드 리스트
         vlist = list()  # 리스트형 변수 선언
 
