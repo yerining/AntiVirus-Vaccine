@@ -27,6 +27,9 @@ if k2.set_plugins('plugins'):   #플러그인 엔진 경로 정의
         vlist = kav.listvirus() # 플러그인의 바이러스 목록을 얻는다.
         print('[*] Not Used Callback : %d' % len(vlist))
 
-        ret, vname, mid, eid = kav.scan('eicar.txt')
+        ret, vname, mid, eid = kav.scan('dummy.txt')
+
+        #if ret:
+            #kav.disinfect('eicar.txt', mid, eid)
 
         kav.uninit() # 플러그인엔진 종료

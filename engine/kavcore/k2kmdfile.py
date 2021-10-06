@@ -326,7 +326,7 @@ def load(mod_name, buf):
 
             return module
         except Exception as e:
-            print("에러: " + str(e))
+           # print("에러: " + str(e))
             return None
     else:
         return None
