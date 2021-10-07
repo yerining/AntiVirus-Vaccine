@@ -30,7 +30,7 @@ class FileStruct:
     def set_default(self, filename, level):
 
         self.__fs['is_arc'] = False  # 압축 여부
-        self.__fs['arc_engine_name'] = None  # 압축 해제 가능 엔진 ID
+        self.__fs['arc_engine_name'] = -1  # 압축 해제 가능 엔진 ID
         self.__fs['arc_filename'] = ''  # 실제 압축 파일
         self.__fs['filename_in_arc'] = ''  # 압축해제 대상 파일
         self.__fs['real_filename'] = filename  # 검사 대상 파일
@@ -38,7 +38,7 @@ class FileStruct:
 
         self.__fs['master_filename'] = filename  # 출력용
         self.__fs['is_modify'] = False  # 수정 여부
-        self.__fs['can_arc'] = kernel.MASTER_IGNORE  # 재압축 가능 여부
+        self.__fs['can_arc'] = False  # 재압축 가능 여부
         self.__fs['level'] = level  # 압축 깊이
 
     # ---------------------------------------------------------------------

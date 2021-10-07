@@ -40,7 +40,7 @@ class KavMain:
     def getinfo(self):  # 플러그인 엔진의 주요 정보
         info = dict()  # 사전형 변수 선언
 
-        info['author'] = 'Kei Choi'  # 제작자
+        info['author'] = 'CloudBread'  # 제작자
         info['version'] = '1.1'  # 버전
         info['title'] = 'Zip Archive Engine'  # 엔진 설명
         info['kmd_name'] = 'zip'  # 엔진 파일 이름
@@ -55,13 +55,13 @@ class KavMain:
     #          filename_ex - 압축 파일 내부 파일 이름
     # 리턴값 : {파일 포맷 분석 정보} or None
     # ---------------------------------------------------------------------
-    def format(self, filehandle, filename, filename_ex):
+    def format(self, filehandle, filename):
         fileformat = {}
         mm = filehandle
         if mm[0:4] == 'PK\x03\x04':  # 헤더 체크
-            fileformat['size']=len(mm) # 포맷 주요 정보 저장
+            fileformat['size'] = len(mm) # 포맷 주요 정보 저장
 
-            ret = {'ff_zip':format}
+            ret = {'ff_zip' : fileformat}
             return ret
 
         return None

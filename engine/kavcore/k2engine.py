@@ -340,7 +340,7 @@ class EngineInstance:
                     self.result['Folders'] += 1 #폴더 개수 카운트
 
                     if self.options['opt_list']:  # 옵션 내용 중 모든 리스트 출력인가?
-                        if isinstance(cb_fn, types.FuctionType):
+                        if isinstance(cb_fn, types.FunctionType):
                             cb_fn(ret_value)
 
                     flist = glob.glob(real_name+os.sep + '*')

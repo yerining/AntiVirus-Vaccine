@@ -309,7 +309,7 @@ def print_result(result):
     cprint('Results:\n', FOREGROUND_GREY | FOREGROUND_INTENSITY)
     cprint('Folders           :%d\n' % result['Folders'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
     cprint('Files             :%d\n' % result['Files'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
-    cprint('Packed            :%d\n' % result['Packed'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
+    #cprint('Packed            :%d\n' % result['Packed'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
     cprint('Infected files    :%d\n' % result['Infected_files'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
     cprint('Identified viruses:%d\n' % result['Identified_viruses'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
     cprint('I/O errors        :%d\n' % result['IO_errors'], FOREGROUND_GREY | FOREGROUND_INTENSITY)
@@ -392,24 +392,28 @@ def main():
 
     kav.set_options(options) # 옵션을 설정
 
-    if options.opt_vlist is True: # 악성코드 목록 출력
+    # 악성코드 목록 출력
+    if options.opt_vlist is True:
         kav.listvirus(listvirus_callback)
     else:
         if args:
-            # 검사용 path 설정(다중 경로 지원)
-            for scan_path in args: # 옵션을 제외한 첫번째가 검사 대상
+            kav.set_result()
+
+            # 검사용 path
+            for scan_path in args:
                 scan_path = os.path.abspath(scan_path)
 
-                if os.path.exists(scan_path): # 폴더 혹은 파일이 존재하는가?
-                    #print(scan_path)
+                if os.path.exists(scan_path):  # 폴더나 파일이 존재하는가?
                     kav.scan(scan_path, scan_callback)
                 else:
                     print_error('Invalid path: \'%s\'' % scan_path)
 
+            # 악성코드 검사 결과 출력
             ret = kav.get_result()
             print_result(ret)
 
     kav.uninit()
 
-if __name__=='__main__':
+
+if __name__ == '__main__':
     main()
