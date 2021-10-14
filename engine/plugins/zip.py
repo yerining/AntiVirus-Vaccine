@@ -122,6 +122,7 @@ class KavMain:
                         buf = fp.read()
                         # print '[-] filename :', rname, len(buf)
                         # print '[-] rname :',
+                        # 압축 해제 대상 파일(filename_in_arc) 이름을 얻는다.
                         a_name = file_info.get_filename_in_archive()
                         zfile.writestr(a_name, buf)
                 except IOError:

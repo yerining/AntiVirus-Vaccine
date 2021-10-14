@@ -123,12 +123,13 @@ class FileStruct:
         self.__fs['is_modify'] = modify
 
     # ---------------------------------------------------------------------
-    # get_can_archive(self)
+    # can_archive(self)
     # 악성코드로 치료 후 파일을 재압축 할 수 있는지 여부를 확인한다.
     # 리턴값 : kernel.MASTER_IGNORE, kernel.MASTER_PACK, kernel.MASTER_DELETE
     # ---------------------------------------------------------------------
-    def get_can_archive(self):  # 재압축 가능 여부
+    def can_archive(self):  # 재압축 가능 여부
         return self.__fs['can_arc']
+
 
     # ---------------------------------------------------------------------
     # set_can_archive(self, mode)
